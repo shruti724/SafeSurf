@@ -1,0 +1,121 @@
+# Qt is a full development framework with tools designed to streamline the creation of applications and
+# user interfaces for desktop, embedded, and mobile platforms.
+
+# import sys
+# print(sys.version)
+Python: 3.10.1 (tags/v3.10.1:2cd268a, Dec  6 2021, 19:10:37) [MSC v.1929 64 bit (AMD64)]
+
+# pip show PyQtWebEngine
+# pip install -r requirements
+
+# Name: pip
+# Version: 24.0
+
+# modules and their versions
+# Name: PyQt5
+# Version: 5.15.10
+# Name: PyQtWebEngine
+# Version: 5.15.6
+# Name: PyQtWebEngine-Qt5
+# Version: 5.15.2
+# Name: PyQt5-sip
+# Version: 12.13.0
+Name: pyinstaller
+Version: 6.3.0
+
+
+-----------------------------What is a Web Browser? + How to distribute it to the clients?----------------------------
+
+If you've developed a web browser using Python, it's important to understand that web browsers are typically
+client-side applications installed and run on individual devices, rather than being hosted on servers like
+traditional web applications.
+
+However, if you've developed a web browser with additional features or functionality that you want to make accessible
+to others, you might consider distributing it as a standalone application rather than hosting it on a server.
+
+Here are some steps you can take to distribute your Python-based web browser:
+
+1. Package Your Application: Use packaging tools like PyInstaller or Py2exe to create standalone executable files for
+   your web browser application. This will bundle all necessary Python dependencies and resources into a single
+   package that users can download and run on their devices.
+
+2. Distribute Your Application: Once you've packaged your web browser application, you can distribute it through
+   various channels:
+   i. Upload it to a file-sharing platform like GitHub Releases, Dropbox, or Google Drive, and share the download link
+      with others.
+   ii. Distribute it through software distribution platforms like Steam, the Microsoft Store, or the Mac App Store,
+       depending on your target platform.
+   iii. Create an installer for your application using tools like Inno Setup (for Windows) or PackageMaker (for macOS)
+        and distribute it through your own website or other channels.
+
+3. Promote Your Application: Spread the word about your web browser application through social media, forums, and
+   communities related to software development, web browsing, and Python programming. Encourage users to try out
+   your application and provide feedback.
+
+4. Provide Support and Updates: Once your web browser application is released, be prepared to provide support to
+   users and release updates to address any issues or add new features. Consider setting up a support email address
+   or forum where users can report bugs and ask questions.
+
+It's important to note that distributing standalone applications comes with its own set of challenges, such as
+ensuring compatibility across different operating systems and managing user feedback and support. Make sure to
+thoroughly test your application on various platforms and address any issues before releasing it to the public.
+
+Overall, while hosting a web browser itself on a server is not a typical scenario, you can distribute your
+Python-based web browser application as a standalone executable to make it accessible to users.
+
+-------------------------------------------Use of PyInstaller(a Packaging tool)----------------------------------------
+
+PyInstaller is a popular Python library used to package Python applications into standalone executables, which can
+be distributed and run on other machines without requiring Python to be installed.
+
+Here's how you can use PyInstaller to package your Python-based web browser application:
+
+1. Install PyInstaller: First, you need to install PyInstaller. You can do this via pip, the Python package
+   manager, by running the following command in your terminal or command prompt:
+
+    ```
+    pip install pyinstaller
+    ```
+
+2. Package Your Application:
+
+   a. Navigate to the directory containing your Python web browser application files using the command line.
+
+   b. Run the following command to package your application into a standalone executable:
+
+    ```
+    pyinstaller your_script.py
+
+    or
+
+    python -m PyInstaller --onefile your_script.py
+    (helped from: https://stackoverflow.com/questions/70227771/i-cant-use-pyinstaller)
+    ```
+
+    Replace `your_script.py` with the main Python script file of your web browser application. PyInstaller
+    will analyze your script, gather all its dependencies, and create a standalone executable in a `dist`
+    directory within your project folder.
+
+3. Customize PyInstaller Options(Optional):
+
+   - PyInstaller provides various options to customize the packaging process. You can specify options such as the
+     name of the output executable, exclude certain modules or files, include additional files or directories,
+     and more. You can find a list of available options in the PyInstaller documentation.
+
+4. Test the Executable**: Once PyInstaller has finished packaging your application, navigate to the `dist`
+   directory and run the generated executable to test it. Make sure it behaves as expected and includes all the
+   necessary functionality.
+
+5. Distribute Your Application: Now that you have a standalone executable for your Python web browser application,
+   you can distribute it to others. You can upload it to a file-sharing platform, your own website, or a cloud
+   storage service and provide users with a download link.
+
+6. Provide Installation Instructions: Optionally, provide users with instructions on how to download and install
+   your application. Include information about system requirements, installation steps, and any other relevant
+   details.
+
+7. Update and Maintain Your Application: Regularly update and maintain your application as needed. Address any
+   issues reported by users, add new features, and release updates to improve the overall user experience.
+
+By following these steps, you can use PyInstaller to package your Python-based web browser application into a
+standalone executable and distribute it to users.
