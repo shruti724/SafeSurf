@@ -79,6 +79,8 @@ Here's how you can use PyInstaller to package your Python-based web browser appl
 
 2. Package Your Application:
 
+   * To open terminal - Windows/Linux: Alt + F12
+
    a. Navigate to the directory containing your Python web browser application files using the command line.
 
    b. Run the following command to package your application into a standalone executable:
@@ -119,3 +121,5 @@ Here's how you can use PyInstaller to package your Python-based web browser appl
 
 By following these steps, you can use PyInstaller to package your Python-based web browser application into a
 standalone executable and distribute it to users.
+
+Note: © 2024 S. R. Jha. All rights reserved.
