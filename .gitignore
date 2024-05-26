@@ -122,3 +122,5 @@ dmypy.json
 # IDEs
 .vscode/
 .idea/
+dist/main.exe
+build/main/main.pkg
