@@ -45,9 +45,20 @@ class MyWebBrowser(QMainWindow):
         self.add_extension_btn.setMaximumHeight(30)
         self.add_extension_btn.clicked.connect(self.add_extension)
 
-        self.all_btn = QPushButton("All")
+        self.all_btn = QToolButton()
+        self.all_btn.setText("All")
+        self.all_btn.setPopupMode(QToolButton.InstantPopup)
+        self.all_menu = QMenu(self)
+        self.view_history_action = QAction("View History", self)
+        self.view_history_action.triggered.connect(self.show_all_history)
+        self.all_menu.addAction(self.view_history_action)
+        self.all_btn.setMenu(self.all_menu)
         self.all_btn.setMaximumHeight(30)
-        self.all_btn.clicked.connect(self.show_all_history)
+
+        self.dark_mode_btn = QPushButton()
+        self.dark_mode_btn.setIcon(QIcon("resources/moon.png"))
+        self.dark_mode_btn.setMaximumHeight(30)
+        self.dark_mode_btn.clicked.connect(self.toggle_dark_mode)
 
         self.horizontal.addWidget(self.url_bar)
         self.horizontal.addWidget(self.go_btn)
@@ -57,6 +68,7 @@ class MyWebBrowser(QMainWindow):
         self.horizontal.addWidget(self.home_btn)
         self.horizontal.addWidget(self.add_extension_btn)
         self.horizontal.addWidget(self.all_btn)
+        self.horizontal.addWidget(self.dark_mode_btn)
 
         self.browser = QWebEngineView()
 
@@ -80,6 +92,8 @@ class MyWebBrowser(QMainWindow):
         self.load_search_history()
 
         self.browser.urlChanged.connect(self.on_url_changed)
+
+        self.is_dark_mode = False  # Keep track of the mode
 
     def navigate(self):
         text = self.url_bar.text()
@@ -144,11 +158,20 @@ class MyWebBrowser(QMainWindow):
         if not url.isEmpty():
             self.add_to_search_history(url.toString())
 
+    def toggle_dark_mode(self):
+        if not self.is_dark_mode:
+            self.setStyleSheet("background-color: #333; color: #fff;")
+            self.browser.setStyleSheet("background-color: #000; color: #fff;")
+            self.dark_mode_btn.setIcon(QIcon("resources/sun.png"))
+        else:
+            self.setStyleSheet("")
+            self.browser.setStyleSheet("")
+            self.dark_mode_btn.setIcon(QIcon("resources/moon.png"))
+        self.is_dark_mode = not self.is_dark_mode
+
 
 app = QApplication(sys.argv)
 window = MyWebBrowser()
 window.show()
 window.showMaximized()
 app.exec_()
-
-# Note: © 2024 S. R. Jha. All rights reserved.
